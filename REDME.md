@@ -8,7 +8,8 @@ HTTPX
  - Suporte para AnyIO
  - pip install httpx / poetry install httpx 
 Um resumo sobre I/O
- - 
+ - Bound de IO, estamos desperdiçando tempo com as entradas e saídas
+ - em outras palavras, o python conversou com o sistema operacional, o OS abriu uma porta, e essa porta eestá esperando a resposta do site para a maquina
 Requests assíncronos
  - 
 iometer
