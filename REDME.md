@@ -11,6 +11,8 @@ Um resumo sobre I/O
  - Bound de IO, estamos desperdiçando tempo com as entradas e saídas
  - em outras palavras, o python conversou com o sistema operacional, o OS abriu uma porta, e essa porta eestá esperando a resposta do site para a maquina
 Requests assíncronos
- - 
+ - escalonamento de tarefas
+ - o que define onde o escalonamento é o await
+ - quando ele encontra o await ele troca de tarefa
 iometer
  - 
