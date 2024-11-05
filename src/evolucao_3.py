@@ -1,6 +1,8 @@
 from asyncio import gather, run
 from httpx import AsyncClient
 
+from rich import print # type: ignore
+
 from pokes import pokes
 
 async def evolucao(poke):
@@ -8,10 +10,12 @@ async def evolucao(poke):
             base_url='https://pokeapi.co/api/v2'
         ) as client:
         # request 1
+        print(f'request 1: [b][red]{poke}[/]')
         response = await client.get(f'/pokemon/{poke}')
         id_ = response.json().get('id')
 
         # request 2
+        print(f'request 2: [b][green]{poke}[/]')
         response = await client.get(f'/pokemon-species/{id_}')
         evolution_chain = (
             response
@@ -21,6 +25,7 @@ async def evolucao(poke):
         )
 
         # request 3
+        print(f'request 3: [b][blue]{poke}[/]')
         response = await client.get(evolution_chain)
         chain_data = evolution_name = (
             response
