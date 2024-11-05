@@ -1,4 +1,5 @@
 from asyncio import gather, run
+from aiometer import run_all # type: ignore
 from httpx import AsyncClient
 
 from rich import print # type: ignore
@@ -39,14 +40,20 @@ async def evolucao(poke):
                 .get('species')
                 .get('name')
             )
-            print(evolution_name)
-        else:
-            print('sem evolução')
+        #    print(evolution_name)
+        #else:
+        #    print('sem evolução')
             
         
 
 async def main():
-    tasks = [evolucao(poke) for poke in pokes]
-    await gather(*tasks)
+    #tasks = [evolucao(poke) for poke in pokes]
+    #await gather(*tasks)
+    from functools import partial
+    result = await run_all(
+        [partial(evolucao, poke) for poke in pokes],
+        max_at_once=5,
+        max_per_second=2
+    )
 
 run(main())

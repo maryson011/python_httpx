@@ -15,4 +15,10 @@ Requests assíncronos
  - o que define onde o escalonamento é o await
  - quando ele encontra o await ele troca de tarefa
 iometer
- - 
+ - controlando o eventloopt
+ - para que ele não faça um milhão de coisas
+ - aoimeter foi criado por Florimond Manca
+ - lançado em março de 2020
+ - run_all (rode tudo) ele funciona diferente do gather (max_at_once, max_per_second)
+
+RESPX -> mocks para requests
